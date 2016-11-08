@@ -56,7 +56,7 @@ public:
     map<ll, map<string, string>> metas;
     Xml::Inspector<Xml::Encoding::Utf8Writer> inspector(input_filename);
     ll id;
-    map<string, string> attrs;
+    map<string, string> attrs, bounds;
     map<ll, int> idtoidx;
     vector<ll> ns;
     Graph baseG;
@@ -92,7 +92,7 @@ public:
           for (int i = 0; i < (int)ns.size() - 1; i++) {
             int aidx = idtoidx[ns[i]];
             int bidx = idtoidx[ns[i + 1]];
-            double dist = Common::DistNN(baseG.ns[aidx], baseG.ns[bidx]);
+            double dist = Common::Dist(baseG.ns[aidx], baseG.ns[bidx]);
             baseG.es[aidx].push_back((Edge){aidx, bidx, dist});
             baseG.es[bidx].push_back((Edge){bidx, aidx, dist});
           }
@@ -110,6 +110,8 @@ public:
           for (auto kv : attrs2) attrs[kv.first] = kv.second;
         } else if (name == "nd"){
           ns.push_back(stoll(attrs2["ref"]));
+        } else if (name == "bounds") {
+          bounds = GetAttributes(inspector);
         }
       }
     }
@@ -162,7 +164,14 @@ public:
         }
       }
     }
+
     g.E = E;
+    g.minlat = stod(bounds["minlat"]);
+    g.maxlat = stod(bounds["maxlat"]);
+    g.minlon = stod(bounds["minlon"]);
+    g.maxlon = stod(bounds["maxlon"]);
+
+    cout << g.minlat << " " << g.maxlon << endl;
 
     cout << "Finished normalizing graph. (nodes: " << V << ", edges: " << E << ")" << endl;
     cout << "Serializing graph..." << endl;
