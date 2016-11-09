@@ -166,10 +166,12 @@ public:
     }
 
     g.E = E;
-    g.minlat = stod(bounds["minlat"]);
-    g.maxlat = stod(bounds["maxlat"]);
-    g.minlon = stod(bounds["minlon"]);
-    g.maxlon = stod(bounds["maxlon"]);
+    for (auto nd : g.ns) {
+      g.minlat = min(g.minlat, nd.lat - 0.001);
+      g.maxlat = max(g.maxlat, nd.lat + 0.001);
+      g.minlon = min(g.minlon, nd.lon - 0.001);
+      g.maxlon = max(g.maxlon, nd.lon + 0.001);
+    }
 
     cout << g.minlat << " " << g.maxlon << endl;
 
@@ -178,5 +180,6 @@ public:
 
     g.serialize(output_filename);
     cout << "Finished serializing graph." << endl;
+    // g.visualize();
   }
 };

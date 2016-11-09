@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "../src/OsmParser.cpp"
+#include "../src/Graph.cpp"
 
 using namespace std;
 
 int main(void) {
-  OsmParser::Parse("kyoto.osm");
+  Graph g("kyoto.in");
+  g.visualize();
 }

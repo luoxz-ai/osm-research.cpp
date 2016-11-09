@@ -30,7 +30,6 @@ public:
   // Get Shortest Paths from s to all nodes with Dijkstra
   vector<double> Dijkstra(const Graph &g, int s) {
     vector<double> d(g.V, 1e18);
-    // Dijkstra (Verified: AOJ2005)
     d[s] = 0;
     typedef pair<double,int> P;
     priority_queue<P, vector<P>, greater<P> > que;
