@@ -7,7 +7,11 @@ using namespace std;
 
 class Edge {
 public:
-  long long from, to;
+  int from, to;
   double w;
   // map<string, string> attrs;
 };
+
+bool operator < (const Edge &x, const Edge &y) {
+  return x.from == y.from ? x.to < y.to : x.from < y.from;
+}

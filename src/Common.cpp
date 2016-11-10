@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <queue>
+#include <algorithm>
 
 #define rad2deg(a) ((a)/M_PI * 180.0) /* rad を deg に換算するマクロ関数 */
 #define deg2rad(a) ((a)/180.0 * M_PI) /* deg を rad に換算するマクロ関数 */
@@ -27,8 +28,8 @@ public:
     return -1;
   }
 
-  // Get Shortest Paths from s to all nodes with Dijkstra
-  vector<double> Dijkstra(const Graph &g, int s) {
+  // Get Shortest Path from s to t with Dijkstra
+  static pair<int, vector<Edge>> Dijkstra(const Graph &g, int s, int t) {
     vector<double> d(g.V, 1e18);
     d[s] = 0;
     typedef pair<double,int> P;
@@ -46,7 +47,19 @@ public:
         }
       }
     }
-    return d;
+    vector<Edge> path;
+    int now = t;
+    while(now != s) {
+      for (auto e : g.es[now]) {
+        if (abs(e.w + d[e.to] - d[now]) < 1e-8) {
+          path.push_back(e);
+          now = e.to;
+        }
+      }
+    }
+    reverse(path.begin(), path.end());
+    for (auto &e : path) swap(e.from, e.to);
+    return pair<int, vector<Edge>>(d[t], path);
   }
 
 };

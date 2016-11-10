@@ -178,7 +178,7 @@ public:
     cout << "Finished normalizing graph. (nodes: " << V << ", edges: " << E << ")" << endl;
     cout << "Serializing graph..." << endl;
 
-    g.serialize(output_filename);
+    g.Serialize(output_filename);
     cout << "Finished serializing graph." << endl;
     // g.visualize();
   }
