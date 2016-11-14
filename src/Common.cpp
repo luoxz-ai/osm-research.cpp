@@ -8,6 +8,10 @@
 
 using namespace std;
 
+// Setting
+string dpath = "../data/";
+
+
 class Common {
 public:
 

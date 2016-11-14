@@ -1,0 +1,8 @@
+graph {graph[size=\"1000.0,1000.0\"];
+node[fixedsize = true,width = 0.05, height = 0.05];
+0 [pos="-150,-150", label=""]
+...
+100 [pos="-150,-150", label=""]
+  959 -- 960;
+  959 -- 929;
+}
