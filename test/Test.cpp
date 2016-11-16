@@ -11,6 +11,10 @@ void test_visualizer(Graph &g);
 string area, func;
 
 int main(int argc, char *argv[]) {
+  if (argc != 3) {
+    cout << "Invalid number of commandline arguments. Usage: './a.out <area> <function>'. " << endl;;
+    return 0;
+  }
   area = argv[1], func = argv[2];
   Graph g(dpath + area + ".in");
   if (func == "visualizer") {

@@ -1,5 +1,5 @@
 # osm-research.cpp
-Library of importing, loading and analyzing Open Street Map data with C++.
+Framework to import, load and analyze Open Street Map data with C++.
 
 ## How to use
 
