@@ -1,5 +1,5 @@
 # osm-research.cpp
-Framework to import, load and analyze Open Street Map data with C++.
+Lightweight flexible C++ Framework to import, load and analyze Open Street Map data for GIS analysis. 
 
 ## What can we do with osm-research.cpp?
 ### Convert .osm data to simpler format
