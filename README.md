@@ -18,7 +18,7 @@ Framework to import, load and analyze Open Street Map data with C++.
  </way>
 </osm>
 ```
-##### output format
+##### output format (light and easy to handle)
 ```
 69 148 // number of nodes and edges
 35.0027689209 35.0097928772 135.7662576904 135.7714620361 // bounds
@@ -26,10 +26,10 @@ Framework to import, load and analyze Open Street Map data with C++.
 ...
 0 65 28.8085830773 // nodes connected by and weight of the first edge
 ```
-### Calculate shortest paths, nearest neighbors, and many others
+### Calculate shortest paths, nearest neighbors, and many others easily
 ##### Shortest Path
 Dijkstra, Contraction Hierarchy and  Hub-Labeling are implemented.
-##### Shortest Path
+##### Nearest Neighbor
 kdTree, which is simple but fast algorithm for NN is implemented.
 ### Visualize any road networks in various format
 
