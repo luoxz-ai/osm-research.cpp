@@ -1,5 +1,5 @@
 # osm-research.cpp
-Lightweight flexible C++ Framework to import, load and analyze Open Street Map data for GIS analysis. 
+Lightweight, flexible C++ Framework to import, load and analyze Open Street Map data.
 
 ## What can we do with osm-research.cpp?
 ### Convert .osm data to simpler format
@@ -32,6 +32,7 @@ Dijkstra, Contraction Hierarchy and  Hub-Labeling are implemented.
 ##### Nearest Neighbor
 kdTree, which is simple but fast algorithm for NN is implemented.
 ### Visualize any road networks in various format
+Highlight any nodes and edges in various colors you want.
 
 ## How to use
 
