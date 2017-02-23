@@ -3,14 +3,13 @@
 #include <queue>
 #include <algorithm>
 
+#include "graph.h"
+
 #define rad2deg(a) ((a)/M_PI * 180.0) /* rad を deg に換算するマクロ関数 */
 #define deg2rad(a) ((a)/180.0 * M_PI) /* deg を rad に換算するマクロ関数 */
 
-using namespace std;
-
 // Setting
-string dpath = "../data/";
-
+std::string dpath = "../data/";
 
 class Common {
 public:
@@ -33,11 +32,11 @@ public:
   }
 
   // Get Shortest Path from s to t with Dijkstra
-  static pair<int, vector<Edge>> Dijkstra(const Graph &g, int s, int t) {
-    vector<double> d(g.V, 1e18);
+  static std::pair<int, std::vector<Edge>> Dijkstra(const Graph& g, int s, int t) {
+    std::vector<double> d(g.V, 1e18);
     d[s] = 0;
-    typedef pair<double,int> P;
-    priority_queue<P, vector<P>, greater<P> > que;
+    typedef std::pair<double, int> P;
+    std::priority_queue<P, std::vector<P>, std::greater<P> > que;
     que.push(P(0, s));
     while (!que.empty()) {
       double dist = que.top().first;
@@ -51,19 +50,19 @@ public:
         }
       }
     }
-    vector<Edge> path;
+    std::vector<Edge> path;
     int now = t;
     while(now != s) {
       for (auto e : g.es[now]) {
-        if (abs(e.w + d[e.to] - d[now]) < 1e-8) {
+        if (fabs(e.w + d[e.to] - d[now]) < 1e-8) {
           path.push_back(e);
           now = e.to;
         }
       }
     }
     reverse(path.begin(), path.end());
-    for (auto &e : path) swap(e.from, e.to);
-    return pair<int, vector<Edge>>(d[t], path);
+    for (auto &e : path) std::swap(e.from, e.to);
+    return std::pair<int, std::vector<Edge>>(d[t], path);
   }
 
 };

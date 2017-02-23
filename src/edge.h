@@ -1,11 +1,9 @@
-#include <iostream>
-#include <string>
-#include <map>
-#include "Node.cpp"
+#ifndef EDGE_H_
+#define EDGE_H_
 
-using namespace std;
+#include "node.h"
 
-class Edge {
+struct Edge {
 public:
   int from, to;
   double w;
@@ -15,3 +13,5 @@ public:
 bool operator < (const Edge &x, const Edge &y) {
   return x.from == y.from ? x.to < y.to : x.from < y.from;
 }
+
+#endif /// EDGE_H_

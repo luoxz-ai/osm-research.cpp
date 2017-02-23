@@ -8,7 +8,7 @@
 #include "Graph.cpp"
 #include "Common.cpp"
 #include "../lib/XmlInspector/XmlInspector.hpp"
-#include "UnionFind.cpp"
+#include "../lib/UnionFind/union_find.h"
 
 using namespace std;
 
@@ -47,6 +47,7 @@ public:
     // TODO: Check if the output dir exists and writable
     string output_filename = output_dirname + name_without_osm + ".in";
     ofstream outfile(output_filename);
+
 
 
     // First: summarize graph information (node num, edge num, nodes)
